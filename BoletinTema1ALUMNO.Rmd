@@ -43,7 +43,7 @@ language:
 library(knitr)
 options(width = 100)
 # Opciones generales chunks
-
+#lql
 ## PARA GENERAR SOLO LOS ENUNCIADO include=FALSE
 #opts_chunk$set(echo=F,message = F, error = F, warning = F, comment = NA, fig.align = 'center', dpi = 100, tidy = F, cache.path = '.cache/', fig.path = './figure/', include=FALSE)
 
