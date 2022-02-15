@@ -92,22 +92,29 @@ b.  Usa las funciones **dim, head, tail, str** para una primera visión de los c
 c.  Muestra los nombres de las filas y las columnas (**rownames**, **colnames**)
 
 ```{r}
+#a)
+data("mammals")
+data("Animals2")
 
+#b)
+dim(mammals)
+dim(Animals2)
 
+head(mammals)
+head(Animals2)
 
+tail(mammals)
+tail(Animals2)
 
+str(mammals)
+str(Animals2)
 
+#c)
+rownames(mammals)
+rownames(Animals2)
 
-
-
-
-
-
-
-
-
-
-
+colnames(mammals)
+colnames(Animals2)
 
 ```
 
@@ -115,9 +122,8 @@ d.  Usa la función **intersect** y almacena en la variable *commonAnimals* los 
 
 ```{r}
 
-
-
-
+commonAnimals <- intersect(mammals, Animals2)
+row.names(commonAnimals)
 
 
 ```
@@ -126,9 +132,12 @@ e.  Usa **setdiff** para averiguar qué animales no están en ambos conjuntos. �
 
 ```{r}
 
-
-
-
+animales_no <- setdiff(row.names(mammals), row.names(Animals2))
+#Usamos el nombre de las variables para comparar porque con solo el df no me
+#devuelve nada
+#Son 4 animales
+#"Arctic fox" "Arctic ground squirrel" "Patas monkey" "Mole rat"
+animales_no
 
 
 ```
@@ -137,9 +146,8 @@ e.  Determina las diferencia entre los animales que no aparecen en ambos conjunt
 
 ```{r}
 
-
-
-
+diferencias <- setdiff(mammals["Arctic fox", ], Animals2["Arctic ground squirrel", ], 
+                       Animals2["Mole rat", ], Animals2["Patas monkey", ])
 
 
 
@@ -153,7 +161,6 @@ e.  Determina las diferencia entre los animales que no aparecen en ambos conjunt
 2.  La funcion **qqPlot** del paquete **car** puede ser utilizada para determinar gráficamente si una serie de puntos siguen una distribución de datos Gaussiana. Si las muestras están dentro de las líneas discontinuas podemos indicar que siguen una distribución Gaussiana con un 95 % de confianza. Utilizando esta función representa el logaritmo neperiano (**log**) del peso del cerebro (**brain weigths**) del registro de datos **mammals** del paquete **MASS** y conjunto de datos **Animals2** de la librería **robustbase**. ¿Presentan el mismo comportamiento ?.¿Podríamos decir que siguen una distribución Gaussiana ?
 
 ```{r}
-
 
 ```
 
