@@ -150,7 +150,7 @@ diferencias <- setdiff(mammals["Arctic fox", ], Animals2["Arctic ground squirrel
                        Animals2["Mole rat", ], Animals2["Patas monkey", ])
 
 
-
+#Los animales son los mismos pero los nombres son diferentes
 
 
 
@@ -175,14 +175,19 @@ qqPlot(log(Animals2$brain))
     c.  Determina el número de librerías que tienes instaladas.
 
     ```{r}
+libReturn<-library()
+#La estructura son tres elementos: header, results y footer
 
+head(libReturn$results, n=5)
+# "Combine Multidimensional Arrays"                        
+# "Safe Password Entry for R, Git, and SSH"                
+# "Easy Pre and Post Assertions"                         
+# "Reimplementations of Functions Introduced Since R-3.0.0"
+# "Tools for base64 encoding"
 
-
-
-
-
-
-
+num<- libReturn$results
+num
+# 233 librerías
 
 
     ```
