@@ -273,7 +273,7 @@ data("cabbages")
 #Diagrama de dispersión global.
 plot(whiteside$Temp, whiteside$Gas)
 #Diagrama de dispersión etiquetando según un factor.
-plot(whiteside$Temp, whiteside$Gas, pch=c(6,16)[whiteside\$Insul])
+plot(whiteside$Temp, whiteside$Gas, pch=c(6,16)[whiteside$Insul])
 legend(x="topright",legend=c("Insul = Before","Insul = After"), pch=c(6,16))
 # Planteamos 2 modelos lineales, uno para los datos de cada factor
 Model1 <- lm(Gas ~ Temp, data = whiteside, subset = which(Insul == "Before"))
@@ -303,9 +303,22 @@ b.  Repite el apartado anterior, pero obteniendo un modelo para cada una de las 
 
 ```{r}
 
+#a)
+plot(cabbages$VitC ~ cabbages$HeadWt) 
+#No se observa una relación lineal
+
+#b)
+plot(cabbages$VitC ~ cabbages$HeadWt, pch=c(1,18)[cabbages$Cult])
 
 
+modelo_c39<-lm(cabbages$VitC ~ cabbages$HeadWt, data=cabbages, 
+               subset=which(Cult=="c39"))
 
+modeloc_52<-lm(cabbages$VitC ~ cabbages$HeadWt, data=cabbages, 
+               subset=which(Cult=="c52"))
+
+abline(modelo_c39, lty=3)
+abline(modeloc_52)
 
 
 
@@ -324,6 +337,9 @@ c.  Usa **summary** con cada uno de los modelos obtenidos y observa **Coefficien
 
 ```{r}
 
-
+summary(modelo_c39)
+summary(modeloc_52)
+lm(modelo_c39)
+lm(modeloc_52)
 
 ```
