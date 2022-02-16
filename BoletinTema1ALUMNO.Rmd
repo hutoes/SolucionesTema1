@@ -187,7 +187,7 @@ head(libReturn$results, n=5)
 
 num<- libReturn$results
 num
-# 233 librerías
+# 466 librerías
 
 
     ```
@@ -200,16 +200,46 @@ num
     d.  Utiliza la función **summary**, sobre **cabbages** y **Chile** y observa como, además de otros estadísticos, también devuelve el número de valores perdidos de cada variable.
 
 ```{r}
+#a)
+str(cabbages)
+#Tiene 60 registros y 4 variables
+class(cabbages[ ,1])
+class(cabbages[ ,2])
+class(cabbages[ ,3])
+class(cabbages[ ,4])
+#Las variables son dos de tipo factor una de tipo numeric y la otra enteros
+
+#b)
+is.na(cabbages[ ,1])*1
+is.na(cabbages[ ,2])*1
+is.na(cabbages[ ,3])*1
+is.na(cabbages[ ,4])*1#para que salgan ceros y unos
+#No hay ningún valor perdido
+
+#c)
+str(Chile)
+#Tiene 2700 registros y 8 variables
+class(Chile[ ,1])
+class(Chile[ ,2])
+class(Chile[ ,3])
+class(Chile[ ,4])
+#Las variables son dos de tipo factor y dos de tipo entero
+
+is.na(Chile[ ,1])*1
+is.na(Chile[ ,2])*1
+is.na(Chile[ ,3])*1
+is.na(Chile[ ,4])*1
+is.na(Chile[ ,5])*1 #un valor perdido
+is.na(Chile[ ,6])*1 #98 valores perdidos
+is.na(Chile[ ,7])*1 #17 valores perdidos
+is.na(Chile[ ,8])*1 #168 valores perdidos
+#No hay ningún valor perdido
 
 
-
-
-
-
-
-
-
-
+#d)
+summary(cabbages)
+summary(Chile)
+#Se puede ver ya que NA's indica los valores perdidos en cada variable
 
 
 
